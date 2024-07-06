@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'about_page.dart'; // Import the AboutPage
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
+// _LoginPageState is a private class but it's usage is within the public class LoginPage
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -66,7 +68,11 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
-                // Login action
+                // Navigate to the About page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
